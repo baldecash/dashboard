@@ -113,7 +113,7 @@
       <div class="password-container" v-if="!authorized">
         <img src="logo.svg" alt="Logo" width="200" />
         Fondo Laptop I - Reporte semanal de inversionistas
-        <input v-model="password" type="password" placeholder="Password" />
+        <input v-model="password" type="password" placeholder="Password" maxlength="6"/>
         <button @click="login">Acceder</button>
       </div>
       <iframe
