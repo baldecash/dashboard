@@ -68,9 +68,6 @@
         Ingresa tu password
         <input v-model="password" type="text">
       </div>
-      <div v-if="isLogged == password" id="spinner">
-        <div class="lds-ripple"><div></div><div></div></div>
-    </div>
     <iframe v-if="isLogged == password" src="reporte.html" frameborder="0" onload="document.getElementById('spinner').style.display='none';"></iframe>
       <!-- <iframe v-if="isLogged == password" @load.once="loaded = true;" src="reporte.html" frameborder="0"></iframe> -->
     </div>
