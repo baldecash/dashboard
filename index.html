@@ -79,17 +79,45 @@
       .password-container input:focus {
         border: 1px #ccd3d2 solid;
       }
+
+      .password-container button {
+        margin-top: 20px !important;
+        font-weight: normal;
+        appearance: none;
+        border: none;
+        border-radius: 500px;
+        display: block;
+        text-align: center;
+        background-color: #474fd5;
+        cursor: pointer;
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        -o-transition: background-color 0.2s;
+        -ms-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+        outline: none;
+        height: 42px;
+        width: 144px;
+        font-family: 'Baloo 2';
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+      }
+      .password-container button:active{
+        background-color: #00e4d3;
+      }
     </style>
   </head>
   <body>
     <div id="app">
-      <div class="password-container" v-if="isLogged != password">
+      <div class="password-container" v-if="!authorized">
         <img src="logo.svg" alt="Logo" width="200" />
         Fondo Laptop I - Reporte semanal de inversionistas
         <input v-model="password" type="password" placeholder="Password" />
+        <button @click="login">Acceder</button>
       </div>
       <iframe
-        v-if="isLogged == password"
+        v-else
         src="reporte.html"
         frameborder="0"
       ></iframe>
@@ -100,8 +128,14 @@
       el: "#app",
       data: {
         password: "",
-        isLogged: "215769", 
+        isLogged: "215769",
+        authorized: false
       },
+      methods: {
+        login() {
+          this.authorized = this.isLogged == this.password
+        }
+      }
     });
   </script>
 </html>
